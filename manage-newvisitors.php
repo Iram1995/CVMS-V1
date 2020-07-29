@@ -22,7 +22,7 @@ if (strlen($_SESSION['cvmsaid']==0)) {
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS Visitors</title>
+    <title>VTS-2 Visitors</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -74,6 +74,7 @@ if (strlen($_SESSION['cvmsaid']==0)) {
                                          <thead>
                                         <tr>
                                             <tr>
+                                                <th></th>
                   <th>S.NO</th>
             
                   <th>Full Name</th>
@@ -81,6 +82,7 @@ if (strlen($_SESSION['cvmsaid']==0)) {
               <th>Contact Number</th>
               <th>Email</th>
                    <th>Action</th>
+                   <th>Export</th>
                 </tr>
                                         </tr>
                                         </thead>
@@ -92,12 +94,18 @@ while ($row=mysqli_fetch_array($ret)) {
 ?>
               
                 <tr>
+                    <td><input type="checkbox" name="allow"/></td>
                   <td><?php echo $cnt;?></td>
             
                   <td><?php  echo $row['FullName'];?></td>
                   <td><?php  echo $row['MobileNumber'];?></td>
                 <td><?php  echo $row['Email'];?></td>
                   <td><a href="visitor-detail.php?editid=<?php echo $row['ID'];?>" title="View Full Details"><i class="fa fa-edit fa-1x"></i></a></td>
+               <td><select name="ExportOption" class="form-control">
+                    <option>Excel</option>
+                    <option>CRM</option>
+                    
+                </select></td>
                 </tr>
                 <?php 
 $cnt=$cnt+1;

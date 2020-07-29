@@ -2439,7 +2439,9 @@ section {
         margin-right: 15px;
     }
 }
-
+select.form-control {
+    width: 174% !important;
+}
 .has-noti > i {
     position: relative;
 }

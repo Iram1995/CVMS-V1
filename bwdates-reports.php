@@ -20,7 +20,7 @@ if (strlen($_SESSION['cvmsaid']==0)) {
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS Reports</title>
+    <title>VTS-2 Reports</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -70,7 +70,7 @@ if (strlen($_SESSION['cvmsaid']==0)) {
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Between</strong>Between Dates Reports
+                                        <strong>Between Dates Reports</strong>
                                     </div>
                                     <div class="card-body card-block">
                                         <form method="post" enctype="multipart/form-data" class="form-horizontal" name="bwdatesreport" action="bwdates-reports-details.php">

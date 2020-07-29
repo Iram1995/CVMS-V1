@@ -34,7 +34,7 @@ if(isset($_POST['submit']))
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS Forgot Password</title>
+    <title>VTS-1 Forgot Password</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">

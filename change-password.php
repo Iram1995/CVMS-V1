@@ -38,7 +38,7 @@ $msg="Your current password is wrong";
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS Change Password</title>
+    <title>VTS-2 Change Password</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">

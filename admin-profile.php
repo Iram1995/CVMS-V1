@@ -33,7 +33,7 @@ if (strlen($_SESSION['cvmsaid']==0)) {
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS Admin Profile</title>
+    <title>VTS-2 Admin Profile</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">

@@ -22,7 +22,7 @@ if (strlen($_SESSION['cvmsaid']==0)) {
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS Visitors</title>
+    <title>VTS-2 Visitors</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">

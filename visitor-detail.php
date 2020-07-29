@@ -37,7 +37,7 @@ $remark=$_POST['remark'];
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS Visitors Forms</title>
+    <title>VTS-2 Visitors Forms</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">

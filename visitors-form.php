@@ -41,7 +41,7 @@ $department=$_POST['department'];
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS Visitors Forms</title>
+    <title>VTS-1 Visitors Forms</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -97,7 +97,7 @@ $department=$_POST['department'];
                                                     <label for="text-input" class=" form-control-label">Full Name</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="fullname" name="fullname" placeholder="Full Name" class="form-control" required="">
+                                                    <input type="text" id="fullname" name="fullname" placeholder="Full Name" class="form-control" required="" readonly value="Akash">
                                                     
                                                 </div>
                                             </div>
@@ -106,7 +106,7 @@ $department=$_POST['department'];
                                                     <label for="email-input" class=" form-control-label">Email </label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="email" id="email" name="email" placeholder="visitior's e-mail" class="form-control" required="">
+                                                    <input type="email" id="email" name="email" placeholder="visitior's e-mail" class="form-control" required="" readonly value="akash@gmail.com">
                                                     
                                                 </div>
                                             </div>
@@ -115,17 +115,17 @@ $department=$_POST['department'];
                                                     <label for="password-input" class=" form-control-label">Phone Number</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number" class="form-control" maxlength="10" required="">
+                                                    <input type="text" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number" class="form-control" readonly maxlength="10" required="" value="2147483647">
                                                     
                                                 </div>
                                             </div>
                                           
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="textarea-input" class=" form-control-label">Location</label>
+                                                    <label for="textarea-input" class=" form-control-label" readonly>Location</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <textarea name="address" id="address" rows="9" placeholder="View Visitors Location" class="form-control" required=""></textarea>
+                                                    <textarea name="address" id="address" rows="9" readonly placeholder="View Visitors Location" class="form-control" required="" ></textarea>
                                                 </div>
                                             </div>
                                              <div class="row form-group">
@@ -133,7 +133,7 @@ $department=$_POST['department'];
                                                     <label for="password-input" class=" form-control-label">Time / Date</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="whomtomeet" name="whomtomeet" placeholder="" class="form-control" required="">
+                                                    <input type="text" id="whomtomeet" readonly name="whomtomeet" placeholder="" class="form-control" required="">
                                                     
                                                 </div>
                                             </div>
@@ -142,14 +142,14 @@ $department=$_POST['department'];
                                                     <label for="password-input" class=" form-control-label">Page Visited</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="department" name="department" placeholder="Page Visited" class="form-control" required="">
+                                                    <input type="text" id="department" name="department" readonly placeholder="Page Visited" class="form-control" required="">
                                                     
                                                 </div>
                                             </div>
                                             
                                             
                                           <div class="card-footer">
-                                        <p style="text-align: center;"><button type="submit" name="submit" id="submit" class="btn btn-primary btn-sm">Submit
+                                        <p style="text-align: center;"><button    class="btn btn-primary btn-sm">Submit
                                         </button></p>
                                         
                                     </div>
