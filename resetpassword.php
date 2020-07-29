@@ -33,7 +33,7 @@ session_destroy();
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS-2 Reset Password</title>
+    <title>VTS-1 Reset Password</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">

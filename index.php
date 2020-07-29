@@ -32,7 +32,7 @@ if(isset($_POST['login']))
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS-2 Login</title>
+    <title>VTS-1 Login</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
