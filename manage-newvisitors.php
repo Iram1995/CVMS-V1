@@ -111,11 +111,16 @@ while ($row=mysqli_fetch_array($ret)) {
 $cnt=$cnt+1;
 }?>
                                     </table>
+                                    
                                 </div>
                             </div>
                           
                         </div>
-                        
+                        <div class="card-footer">
+                                        <p style="text-align: center;"><button class="btn btn-primary btn-sm">Export
+                                        </button></p>
+                                        
+                                    </div>
                         
           
 <?php include_once('includes/footer.php');?>

@@ -100,11 +100,13 @@ if (strlen($_SESSION['cvmsaid']==0)) {
                                             
                                                                                         
                                             
-                                          <div class="card-footer">
-                                        <p style="text-align: center;"><button type="submit" name="submit" id="submit" class="btn btn-primary btn-sm">Submit
+                                            <div class="card-footer">
+                                        <p style="text-align: center;"><button type="submit" name="submit" id="submit" disabled class="btn btn-primary btn-sm">EXport to Excel
+                                        </button> <button type="submit" name="submit" id="submit" class="btn btn-primary btn-sm" disabled>Export to CRM
                                         </button></p>
                                         
                                     </div>
+                                    
                                         </form>
                                     </div>
                                    

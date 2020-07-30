@@ -5,33 +5,14 @@ include('includes/dbconnection.php');
 if (strlen($_SESSION['cvmsaid']==0)) {
   header('location:logout.php');
   } else{
-    if(isset($_POST['submit']))
-  {
 
-$cvmsaid=$_SESSION['cvmsaid'];
- $fullname=$_POST['fullname'];
 
-$mobnumber=$_POST['mobilenumber'];
-$email=$_POST['email'];
-$add=$_POST['address'];
-$whomtomeet=$_POST['whomtomeet'];
-$department=$_POST['department'];
- $query=mysqli_query($con,"insert into tblvisitor(FullName,Email,MobileNumber,Address,WhomtoMeet,Deptartment) value('$fullname','$email','$mobnumber','$add','$whomtomeet','$department')");
 
-    if ($query) {
-    $msg="Visitors Detail has been added.";
-  }
-  else
-    {
-      $msg="Something Went Wrong. Please try again";
-    }
+  ?>
 
-  
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -41,12 +22,12 @@ $department=$_POST['department'];
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS-1 Visitors Forms</title>
+    <title>VTS-2 Visitors</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
@@ -69,105 +50,87 @@ $department=$_POST['department'];
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <?php include_once('includes/sidebar.php');?>
-   
+      <?php include_once('includes/sidebar.php');?>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+      
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <?php include_once('includes/header.php');?>
-            <!-- HEADER DESKTOP-->
+            <!-- END HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                          
                             <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        Visitor details
-                                    </div>
-                                    <div class="card-body card-block">
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                            <p style="font-size:16px; color:red" align="center"> <?php if($msg){
-    echo $msg;
-  }  ?> </p>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Full Name</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="fullname" name="fullname" placeholder="Full Name" class="form-control" required="" readonly value="Akash">
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="email-input" class=" form-control-label">Email </label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="email" id="email" name="email" placeholder="visitior's e-mail" class="form-control" required="" readonly value="akash@gmail.com">
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="password-input" class=" form-control-label">Phone Number</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number" class="form-control" readonly maxlength="10" required="" value="2147483647">
-                                                    
-                                                </div>
-                                            </div>
-                                          
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="textarea-input" class=" form-control-label" readonly>Location</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <textarea name="address" id="address" rows="9" readonly placeholder="View Visitors Location" class="form-control" required="" ></textarea>
-                                                </div>
-                                            </div>
-                                             <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="password-input" class=" form-control-label">Time / Date</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="whomtomeet" readonly name="whomtomeet" placeholder="" class="form-control" required="">
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="password-input" class=" form-control-label">Page Visited</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="department" name="department" readonly placeholder="Page Visited" class="form-control" required="">
-                                                    
-                                                </div>
-                                            </div>
-                                            
-                                            
-                                          <div class="card-footer">
-                                        <p style="text-align: center;"><button    class="btn btn-primary btn-sm">Submit
+                                <div class="table-responsive table--no-card m-b-30">
+                                    <table class="table table-borderless table-striped table-earning">
+                                         <thead>
+                                        <tr>
+                                            <tr>
+                                                <th></th>
+                  <th>S.NO</th>
+            
+                  <th>Full Name</th>
+              
+              <th>Contact Number</th>
+              <th>Email</th>
+                   <th>Action</th>
+                   <th>Export</th>
+                </tr>
+                                        </tr>
+                                        </thead>
+                                       <?php
+$ret=mysqli_query($con,"select *from tblvisitor");
+$cnt=1;
+while ($row=mysqli_fetch_array($ret)) {
+
+?>
+              
+                <tr>
+                    <td><input type="checkbox" name="allow"/></td>
+                  <td><?php echo $cnt;?></td>
+            
+                  <td><a href="visitor-detail.php?editid=<?php echo $row['ID'];?>" title="View Full Details"><?php  echo $row['FullName'];?></a></td>
+                  <td><?php  echo $row['MobileNumber'];?></td>
+                <td><?php  echo $row['Email'];?></td>
+                  <td><a href="visitor-detail.php?editid=<?php echo $row['ID'];?>" title="View Full Details"><i class="fa fa-edit fa-1x"></i></a></td>
+               <td><select name="ExportOption" class="form-control">
+                    <option>Excel</option>
+                    <option>CRM</option>
+                    
+                </select></td>
+                </tr>
+                <?php 
+$cnt=$cnt+1;
+}?>
+                                    </table>
+                                 
+                                </div>
+                              
+                            </div>
+                          
+                        </div>
+                        <div>
+                        <div class="card-footer">
+                                        <p style="text-align: center;"><button class="btn btn-primary btn-sm">Export
                                         </button></p>
                                         
                                     </div>
-                                        </form>
-                                    </div>
-                                   
-                                </div>
-                       
-                        </div>
-                        
-                    </div>
-               
- 
+          
 <?php include_once('includes/footer.php');?>
-   </div> </div>
+          </div>
+                </div>
             </div>
         </div>
-</div>
+
+    </div>
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
@@ -195,5 +158,4 @@ $department=$_POST['department'];
 </body>
 
 </html>
-<!-- end document-->
 <?php }  ?>

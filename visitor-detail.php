@@ -37,7 +37,7 @@ $remark=$_POST['remark'];
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS-1 Visitors Forms</title>
+    <title>VTS-2 Visitors Forms</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -102,7 +102,77 @@ $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
 ?><table border="1" class="table table-bordered mg-b-0">
-                                            <tr>
+<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                            <p style="font-size:16px; color:red" align="center"> <?php if($msg){
+    echo $msg;
+  }  ?> </p>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Full Name</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                <input type="text" id="whomtomeet" readonly name="whomtomeet" placeholder="" class="form-control" required="" 
+                                                value="<?php  echo $row['FullName'];?>">  
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="email-input" class=" form-control-label">Email </label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                <input type="text" id="whomtomeet" readonly name="whomtomeet" placeholder="" class="form-control" required="" 
+                                                value="<?php  echo $row['Email'];?>">                                                      
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="password-input" class=" form-control-label">Phone Number</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number" class="form-control" readonly maxlength="10" required="" value="<?php echo $row['MobileNumber']?>">
+                                                    
+                                                </div>
+                                            </div>
+                                          
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label" readonly>Location</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea name="address" id="address" rows="9" readonly placeholder="View Visitors Location" class="form-control" required="" value="<?php  echo $row['Address'];?>" ></textarea>
+                                                </div>
+                                            </div>
+                                             <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="password-input" class=" form-control-label">Time / Date</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="whomtomeet" readonly name="whomtomeet" placeholder="" class="form-control" required="" >
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="password-input" class=" form-control-label">Page Visited</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="department" name="department" readonly placeholder="Page Visited" class="form-control" required="" value="Page Visited">
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                          <div class="card-footer">
+                                        <p style="text-align: center;"><button class="btn btn-primary btn-sm" disabled>Export
+                                        </button></p>
+                                        
+                                    </div>
+                                        </form>
+
+
+
+
+                                           <!--  <tr>
     <th>Full Name</th>
     <td><?php  echo $row['FullName'];?></td>
   </tr>
@@ -135,7 +205,7 @@ while ($row=mysqli_fetch_array($ret)) {
     <th>Vistor Entring Time</th>
     <td><?php  echo $row['EnterDate'];?></td>
   </tr>
-
+ -->
 
 <?php if($row['remark']==""){ ?>
     <form method="post">
@@ -150,10 +220,10 @@ while ($row=mysqli_fetch_array($ret)) {
                                         </form>
                <?php } else { ?>
 
-<tr>
+<!-- <tr>
     <th>Outing Remark </th>
     <td><?php echo $row['remark']; ?></td>
-  </tr>
+  </tr> 
 
 
 <tr>
@@ -161,7 +231,7 @@ while ($row=mysqli_fetch_array($ret)) {
 <td><?php echo $row['outtime']; ?>  </td> 
 <?php } ?>
 </tr>
-</table>                        
+</table>   -->                     
                                     </div>
                                    
                                 </div>
