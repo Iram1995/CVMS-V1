@@ -202,7 +202,7 @@ while ($row=mysqli_fetch_array($ret)) {
     <td><?php  echo $row['ReasontoMeet'];?></td>
   </tr>
   <tr>
-    <th>Vistor Entring Time</th>
+    <th>Visitor Entring Time</th>
     <td><?php  echo $row['EnterDate'];?></td>
   </tr>
  -->
