@@ -81,8 +81,7 @@ if (strlen($_SESSION['cvmsaid']==0)) {
               
               <th>Contact Number</th>
               <th>Email</th>
-                   <th>Action</th>
-                   <th>Export</th>
+                  
                 </tr>
                                         </tr>
                                         </thead>
@@ -100,12 +99,7 @@ while ($row=mysqli_fetch_array($ret)) {
                   <td><a href="visitor-detail.php?editid=<?php echo $row['ID'];?>" title="View Full Details"><?php  echo $row['FullName'];?></a></td>
                   <td><?php  echo $row['MobileNumber'];?></td>
                 <td><?php  echo $row['Email'];?></td>
-                  <td><a href="visitor-detail.php?editid=<?php echo $row['ID'];?>" title="View Full Details"><i class="fa fa-edit fa-1x"></i></a></td>
-               <td><select name="ExportOption" class="form-control">
-                    <option>Excel</option>
-                    <option>CRM</option>
-                    
-                </select></td>
+                 
                 </tr>
                 <?php 
 $cnt=$cnt+1;
@@ -118,11 +112,7 @@ $cnt=$cnt+1;
                           
                         </div>
                         <div>
-                        <div class="card-footer">
-                                        <p style="text-align: center;"><button class="btn btn-primary btn-sm">Export
-                                        </button></p>
-                                        
-                                    </div>
+                      
           
 <?php include_once('includes/footer.php');?>
           </div>

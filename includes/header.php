@@ -4,7 +4,7 @@
                         <div class="header-wrap">
                             <form class="form-header" name="search" action="search-visitor.php" method="post">
                                 <input class="au-input au-input--xl" type="text" name="searchdata" id="searchdata" placeholder="Search by names &amp; mobile number..." />
-                                <button class="au-btn--submit" type="submit" name="search" disabled>
+                                <button class="au-btn--submit" type="submit" name="search">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                             </form>

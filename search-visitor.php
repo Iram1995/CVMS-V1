@@ -89,7 +89,7 @@ $sdata=$_POST['searchdata'];
               
               <th>Contact Number</th>
               <th>Email</th>
-                   <th>Action</th>
+               
                 </tr>
                                         </tr>
                                         </thead>
@@ -109,8 +109,7 @@ while ($row=mysqli_fetch_array($ret)) {
                   <td><?php  echo $row['FullName'];?></td>
                   <td><?php  echo $row['MobileNumber'];?></td>
                 <td><?php  echo $row['Email'];?></td>
-                  <td><a href="visitor-detail.php?editid=<?php echo $row['ID'];?>"><i class="fa fa-edit fa-1x"></i></a></a></td>
-                </tr>
+                    </tr>
                  <?php
                 $cnt=$cnt+1;
 } } else { ?>

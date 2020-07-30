@@ -13,7 +13,7 @@
 
      <li>
                             <a href="visitors-form.php"  style="color: blue">
-                                <i class="fa fa-user"></i>New Visitors</a>
+                                <i class="fa fa-user"></i>View Visitor</a>
                         </li>
    <li>
                             <a href="manage-newvisitors.php"  style="color: blue">
