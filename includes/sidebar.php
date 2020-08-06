@@ -23,7 +23,7 @@
                         
                       <li>
                             <a href="bwdates-reports.php"  style="color: blue">
-                                <i class="fas fa-copy"></i>Vistors B/w Dates</a>
+                                <i class="fas fa-copy"></i>Visitors B/w Dates</a>
                         </li>  
                        
                     </ul>

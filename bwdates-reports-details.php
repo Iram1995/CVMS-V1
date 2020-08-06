@@ -80,7 +80,7 @@ $tdate=$_POST['todate'];
 <h5 align="center" style="color:blue">Report from <?php echo $fdate?> to <?php echo $tdate?></h5>
 <hr />
   
-                                    <table class="table table-borderless table-striped table-earning">
+                                    <table class="table table-borderless table-striped table-earning" id="tblData">
                                          <thead>
                                         <tr>
                                             <tr>
@@ -155,3 +155,53 @@ $cnt=$cnt+1;
 
 </html>
 <?php }  ?>
+<script>
+    
+$(document).ready(function(){
+var tab_text="<table border='2px'><tr>";
+    var textRange; var j=0;
+    tab = document.getElementById('tblData');
+
+    for(j = 1; j < tab.rows.length ; j++) 
+    {     
+        for(i=0;i<4;i++)
+        {
+            //tab.rows[j].cells
+            tab_text=tab_text+tab.rows[j].cells[i].outerHTML;
+        }          
+          tab_text=tab_text+"</tr>";
+
+        // tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+        //tab_text=tab_text+"</tr>";
+    }
+
+    tab_text=tab_text+"</table>";
+    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+    tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE "); 
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+    {
+        txtArea1.document.open("txt/html","replace");
+        txtArea1.document.write(tab_text);
+        txtArea1.document.close();
+        txtArea1.focus(); 
+        sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+    }  
+    else                 //other browser not tested on IE 11
+        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+    
+    
+    
+    
+    
+    
+   
+    location.href="bwdates-reports.php";
+    return (sa);
+});
+</script>

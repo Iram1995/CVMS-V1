@@ -70,7 +70,7 @@ if (strlen($_SESSION['cvmsaid']==0)) {
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning" id="tblData">
+                                    <table class="table table-borderless table-striped table-earning" id="tblData" >
                                          <thead>
                                         <tr>
                                             <tr>
@@ -83,6 +83,7 @@ if (strlen($_SESSION['cvmsaid']==0)) {
               <th>Email</th>
                    <th>Action</th>
                    <th>Export</th>
+                  
                 </tr>
                                         </tr>
                                         </thead>
@@ -100,7 +101,9 @@ while ($row=mysqli_fetch_array($ret)) {
                   <td><?php  echo $row['FullName'];?></td>
                   <td><?php  echo $row['MobileNumber'];?></td>
                 <td><?php  echo $row['Email'];?></td>
-                  <td><a href="visitor-detail.php?editid=<?php echo $row['ID'];?>" title="View Full Details"><i class="fa fa-edit fa-1x"></i></a></td>
+                  <td><a href="visitor-detail.php?editid=<?php echo $row['ID'];?>" title="View Full Details"><i class="fa fa-edit fa-1x"></i></a>
+                  <a href="delete-visitor.php?deleteid=<?php echo $row['ID'];?>" title="Remove Visitor"><i class="fa fa-remove fa-1x"></i></a>
+                  </td>
                <td><select name="ExportOption" class="form-control">
                     <option>Excel</option>
                     <option>CRM</option>
@@ -111,7 +114,7 @@ while ($row=mysqli_fetch_array($ret)) {
 $cnt=$cnt+1;
 }?>
                                     </table>
-                                    
+                                   
                                 </div>
                             </div>
                           
@@ -131,37 +134,104 @@ $cnt=$cnt+1;
 
     </div>
     <script>
-    function exportTableToExcel(tableID, filename = ''){
-    var downloadLink;
-    var dataType = 'application/vnd.ms-excel';
-    var tableSelect = document.getElementById(tableID);
-    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+function exportTableToExcel(table, filename = ''){
+var tab_text="<table border='2px'>";
+    var textRange; var j=0;
+    var count=1
     
-    // Specify file name
-    filename = filename?filename+'.xls':'excel_data.xls';
-    
-    // Create download link element
-    downloadLink = document.createElement("a");
-    
-    document.body.appendChild(downloadLink);
-    
-    if(navigator.msSaveOrOpenBlob){
-        var blob = new Blob(['\ufeff', tableHTML], {
-            type: dataType
-        });
-        navigator.msSaveOrOpenBlob( blob, filename);
-    }else{
-        // Create a link to the file
-        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-    
-        // Setting the file name
-        downloadLink.download = filename;
-        
-        //triggering the function
-        downloadLink.click();
+    tab = document.getElementById(table); // id of table
+
+    for(j = 1 ; j < tab.rows.length ; j++) 
+    {     
+        if(j>1){
+                if(tab.rows[j].cells[0].getElementsByTagName('input')[0].checked==true){
+                    tab_text=tab_text+"<tr>";
+                    // tab_text=tab_text+tab.rows[j].cells[i].outerHTML;
+                
+             
+        for(i=1;i<5;i++)
+        {
+            if(i==1){
+                var prev_Value=tab.rows[j].cells[i].textContent;
+                tab.rows[j].cells[i].textContent=count;
+                tab_text=tab_text+tab.rows[j].cells[i].outerHTML;
+                tab.rows[j].cells[i].textContent=prev_Value;
+            }
+            else{
+            //tab.rows[j].cells
+            tab_text=tab_text+tab.rows[j].cells[i].outerHTML;
+            }
+
+            
+        }
+        count++;
+        tab_text=tab_text+"</tr>";
+        }}
+        else{
+            tab_text=tab_text+"<tr>";
+            for(i=1;i<5;i++)
+        {
+            //tab.rows[j].cells
+            tab_text=tab_text+tab.rows[j].cells[i].outerHTML;
+        }            tab_text=tab_text+"</tr>";
+
+        }
+        //tab_text=tab_text+"</tr>";
     }
-   // location.reload();
+
+    tab_text=tab_text+"</table>";
+    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+    tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE "); 
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+    {
+        txtArea1.document.open("txt/html","replace");
+        txtArea1.document.write(tab_text);
+        txtArea1.document.close();
+        txtArea1.focus(); 
+        sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+    }  
+    else                 //other browser not tested on IE 11
+        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+    return (sa);
 }
+//     function exportTableToExcel(tableID, filename = ''){
+//     var downloadLink;
+//     var dataType = 'application/vnd.ms-excel';
+//     var tableSelect = document.getElementById(tableID);
+//     var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+//     // Specify file name
+//     filename = filename?filename+'.xls':'excel_data.xls';
+    
+//     // Create download link element
+//     downloadLink = document.createElement("a");
+    
+//     document.body.appendChild(downloadLink);
+    
+//     if(navigator.msSaveOrOpenBlob){
+//         var blob = new Blob(['\ufeff', tableHTML], {
+//             type: dataType
+//         });
+//         navigator.msSaveOrOpenBlob( blob, filename);
+//     }else{
+//         // Create a link to the file
+//         downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    
+//         // Setting the file name
+//         downloadLink.download = filename;
+        
+//         //triggering the function
+//         downloadLink.click();
+//     }
+//    // location.reload();
+// }
     </script>
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>

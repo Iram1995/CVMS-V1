@@ -37,7 +37,7 @@ $remark=$_POST['remark'];
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>VTS-2 Visitors Forms</title>
+    <title>VTS-1 Visitors Forms</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -139,7 +139,7 @@ while ($row=mysqli_fetch_array($ret)) {
                                                     <label for="textarea-input" class=" form-control-label" readonly>Location</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <textarea name="address" id="address" rows="9" readonly placeholder="View Visitors Location" class="form-control" required="" value="<?php  echo $row['Address'];?>" ></textarea>
+                                                    <textarea name="address" id="address" rows="9" readonly class="form-control" required="" value="https://maps.app.goo.gl/4KjB2R1UJbri4oP3A">https://maps.app.goo.gl/4KjB2R1UJbri4oP3A</textarea>
                                                 </div>
                                             </div>
                                              <div class="row form-group">
@@ -156,23 +156,24 @@ while ($row=mysqli_fetch_array($ret)) {
                                                     <label for="password-input" class=" form-control-label">Page Visited</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="department" name="department" readonly placeholder="Page Visited" class="form-control" required="" value="Page Visited">
+                                                    <input type="text" id="department" name="department" readonly placeholder="Page Visited" class="form-control" required="" value="https://alrowaad.ae/lp-advocates/">
                                                     
                                                 </div>
                                             </div>
                                             
                                             
                                           <div class="card-footer">
-                                        <p style="text-align: center;"><button class="btn btn-primary btn-sm" disabled>Export
+                                        <p style="text-align: center;">
+                                        <button class="btn btn-primary btn-sm" onclick="exportTableToExcel('tblData', 'members-data')">Export
                                         </button></p>
                                         
                                     </div>
                                         </form>
 
 
+<table hidden id='tblData'>
 
-
-                                           <!--  <tr>
+                                            <tr>
     <th>Full Name</th>
     <td><?php  echo $row['FullName'];?></td>
   </tr>
@@ -182,30 +183,26 @@ while ($row=mysqli_fetch_array($ret)) {
   </tr>
 
   <tr>
-    <th>Mobile Number</th>
+    <th>Phone Number</th>
     <td><?php  echo $row['MobileNumber'];?></td>
   </tr>
   <tr>
+    <th>Location</th>
+    <td>https://maps.app.goo.gl/4KjB2R1UJbri4oP3A</td>
+  </tr>
+  <!-- <tr>
     <th>Address</th>
     <td><?php  echo $row['Address'];?></td>
+  </tr> -->
+  <tr>
+    <th>Time / Date</th>
+    <td></td>
   </tr>
   <tr>
-    <th>Whom to Meet</th>
-    <td><?php  echo $row['WhomtoMeet'];?></td>
+    <th>Page Visited</th>
+    <td>https://alrowaad.ae/lp-advocates/</td>
   </tr>
-  <tr>
-    <th>Deptartment</th>
-    <td><?php  echo $row['Deptartment'];?></td>
-  </tr>
-  <tr>
-    <th>Reason to Meet</th>
-    <td><?php  echo $row['ReasontoMeet'];?></td>
-  </tr>
-  <tr>
-    <th>Visitor Entring Time</th>
-    <td><?php  echo $row['EnterDate'];?></td>
-  </tr>
- -->
+</table>
 
 <?php if($row['remark']==""){ ?>
     <form method="post">
@@ -276,3 +273,37 @@ while ($row=mysqli_fetch_array($ret)) {
 <!-- end document-->
 <?php }  ?>
 <?php }  ?>
+<script>
+function exportTableToExcel(table, filename = ''){
+var tab_text="<table border='2px'><tr>";
+    var textRange; var j=0;
+    tab = document.getElementById(table);
+
+    for(j = 0 ; j < tab.rows.length ; j++) 
+    {     
+        tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+        //tab_text=tab_text+"</tr>";
+    }
+
+    tab_text=tab_text+"</table>";
+    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+    tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE "); 
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+    {
+        txtArea1.document.open("txt/html","replace");
+        txtArea1.document.write(tab_text);
+        txtArea1.document.close();
+        txtArea1.focus(); 
+        sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+    }  
+    else                 //other browser not tested on IE 11
+        sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+
+    return (sa);
+}
+</script>
