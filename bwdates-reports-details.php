@@ -193,15 +193,7 @@ var tab_text="<table border='2px'><tr>";
     }  
     else                 //other browser not tested on IE 11
         sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
-
-    
-    
-    
-    
-    
-    
-   
-    location.href="bwdates-reports.php";
+  //  location.href="bwdates-reports.php";
     return (sa);
 });
 </script>

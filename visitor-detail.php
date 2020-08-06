@@ -147,7 +147,7 @@ while ($row=mysqli_fetch_array($ret)) {
                                                     <label for="password-input" class=" form-control-label">Time / Date</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="whomtomeet" readonly name="whomtomeet" placeholder="" class="form-control" required="" >
+                                                    <input type="text" id="whomtomeet" readonly name="whomtomeet" placeholder="" class="form-control" required="" value="<?php echo $row['outtime']; ?>" >
                                                     
                                                 </div>
                                             </div>
@@ -196,7 +196,7 @@ while ($row=mysqli_fetch_array($ret)) {
   </tr> -->
   <tr>
     <th>Time / Date</th>
-    <td></td>
+    <td><?php echo $row['outtime']; ?></td>
   </tr>
   <tr>
     <th>Page Visited</th>
@@ -204,7 +204,7 @@ while ($row=mysqli_fetch_array($ret)) {
   </tr>
 </table>
 
-<?php if($row['remark']==""){ ?>
+<!-- <?php if($row['remark']==""){ ?>
     <form method="post">
          <tr>
     <th>Outing Remark :</th>
@@ -217,7 +217,7 @@ while ($row=mysqli_fetch_array($ret)) {
                                         </form>
                <?php } else { ?>
 
-<!-- <tr>
+ <tr>
     <th>Outing Remark </th>
     <td><?php echo $row['remark']; ?></td>
   </tr> 
@@ -227,8 +227,8 @@ while ($row=mysqli_fetch_array($ret)) {
 <th>Out Time</th>
 <td><?php echo $row['outtime']; ?>  </td> 
 <?php } ?>
-</tr>
-</table>   -->                     
+</tr> -->
+</table>                      
                                     </div>
                                    
                                 </div>
